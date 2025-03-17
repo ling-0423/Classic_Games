@@ -1,38 +1,22 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        backButton: cc.Node,  // BackButton 节点
     },
 
-    // LIFE-CYCLE CALLBACKS:
+    onLoad() {
+        // 为 BackButton 添加点击事件监听
+        this.backButton.on('click', this.onBackButtonClick, this);
+    },
 
-    // onLoad () {},
+    onBackButtonClick() {
+        // 跳转到 HomePage 界面
+        cc.director.loadScene('HomePage');
+    },
 
     start () {
 
     },
 
-    // update (dt) {},
 });
